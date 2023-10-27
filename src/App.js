@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import News from "./components/News";
 import CardDetails from "./components/Card/CardDetails";
+import Queries from "./components/Queries";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact></Contact>} />
         <Route path="/about" element={<About></About>} />
         <Route path="/details" element={<CardDetails></CardDetails>} />
+        <Route path="/queries" element={<Queries></Queries>} />
       </Routes>
     </div>
   );

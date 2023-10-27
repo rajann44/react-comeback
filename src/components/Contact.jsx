@@ -8,7 +8,11 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`Email: ${formData.email}, Password: ${formData.password}`);
+    if (!formData.email || !formData.password) {
+      alert("Please fill out all fields before submitting.");
+      return;
+    }
+    alert(`Submitted: ${formData.email} And Password: ${formData.password}`);
   };
 
   return (
