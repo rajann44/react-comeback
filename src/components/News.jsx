@@ -16,7 +16,7 @@ const News = () => {
 
   return (
     <div className="row">
-      {cardData.map((card, index) => (
+      {cardData.slice(0, 8).map((card, index) => (
         <Card key={index} {...card} />
       ))}
     </div>
