@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ContactContext } from "../context/ContactContext";
 
 const Contact = () => {
+  const { setContactList } = useContext(ContactContext);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -12,18 +15,19 @@ const Contact = () => {
       alert("Please fill out all fields before submitting.");
       return;
     }
+    setContactList((prevList) => [...prevList, formData]);
     alert(`Submitted: ${formData.email} And Password: ${formData.password}`);
   };
 
   return (
     <form className="container-sm my-3" onSubmit={handleSubmit}>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="exampleInputEmail1" className="form-label">
           Email address
         </label>
         <input
           type="email"
-          class="form-control"
+          className="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
           placeholder="Enter email in correct format using @"
@@ -33,13 +37,13 @@ const Contact = () => {
           }
         />
       </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="exampleInputPassword1" className="form-label">
           Password
         </label>
         <input
           type="password"
-          class="form-control"
+          className="form-control"
           id="exampleInputPassword1"
           value={formData.password}
           onChange={(event) =>
@@ -47,7 +51,7 @@ const Contact = () => {
           }
         />
       </div>
-      <button type="submit" class="btn btn-primary">
+      <button type="submit" className="btn btn-primary">
         Submit
       </button>
     </form>

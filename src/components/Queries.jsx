@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ContactContext } from "../context/ContactContext";
 
 const Queries = () => {
-  const queries = [
-    { des: "Hello1", more: "Hey Yo1" },
-    { des: "Hello2", more: "Hey Yo2" },
-    { des: "Hello3", more: "Hey Yo3" },
-  ];
+  const { contactList } = useContext(ContactContext);
 
   const [activeAccordion, setActiveAccordion] = useState(null);
 
@@ -15,7 +12,7 @@ const Queries = () => {
 
   return (
     <div className="accordion accordion-flush" id="accordionFlushExample">
-      {queries.map((query, index) => (
+      {contactList.map((query, index) => (
         <div className="accordion-item" key={index}>
           <h2 className="accordion-header">
             <button
@@ -29,7 +26,7 @@ const Queries = () => {
               aria-controls="flush-collapseOne"
               onClick={() => handleAccordionToggle(index)}
             >
-              {query.des}
+              {query.email}
             </button>
           </h2>
           <div
@@ -39,7 +36,7 @@ const Queries = () => {
             }`}
             data-bs-parent="#accordionFlushExample"
           >
-            <div className="accordion-body">{query.more}</div>
+            <div className="accordion-body">{query.password}</div>
           </div>
         </div>
       ))}

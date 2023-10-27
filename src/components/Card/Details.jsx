@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const CardDetails = () => {
+const Details = () => {
   const location = useLocation();
   const propsData = location.state;
 
@@ -28,4 +28,4 @@ const CardDetails = () => {
   );
 };
 
-export default CardDetails;
+export default Details;
